@@ -1140,7 +1140,11 @@ inline int avc_has_perm_noaudit(u32 ssid, u32 tsid,
 
 	node = avc_lookup(ssid, tsid, tclass);
 	if (unlikely(!node))
+<<<<<<< HEAD
 		node = avc_compute_av(ssid, tsid, tclass, avd, &ops_node);
+=======
+		node = avc_compute_av(ssid, tsid, tclass, avd);
+>>>>>>> c15c87c... selinux: remove unnecessary pointer reassignment
 	else
 		memcpy(avd, &node->ae.avd, sizeof(*avd));
 
