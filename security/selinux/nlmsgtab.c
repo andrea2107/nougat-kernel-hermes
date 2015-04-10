@@ -105,11 +105,14 @@ static struct nlmsg_perm nlmsg_xfrm_perms[] =
 <<<<<<< HEAD
 	{ XFRM_MSG_REPORT,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
 	{ XFRM_MSG_MIGRATE,	NETLINK_XFRM_SOCKET__NLMSG_WRITE },
+<<<<<<< HEAD
 =======
 >>>>>>> d16d69c... selinux/nlmsg: add XFRM_MSG_[NEW|GET]SADINFO
 =======
 	{ XFRM_MSG_REPORT,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
 >>>>>>> f0a1b34... selinux/nlmsg: add XFRM_MSG_REPORT
+=======
+>>>>>>> 9e45db6... selinux/nlmsg: add XFRM_MSG_MIGRATE
 	{ XFRM_MSG_NEWSADINFO,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
 	{ XFRM_MSG_GETSADINFO,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
 	{ XFRM_MSG_NEWSPDINFO,	NETLINK_XFRM_SOCKET__NLMSG_WRITE },
