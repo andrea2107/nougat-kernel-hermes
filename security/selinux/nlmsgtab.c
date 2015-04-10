@@ -118,12 +118,16 @@ static struct nlmsg_perm nlmsg_xfrm_perms[] =
 	{ XFRM_MSG_NEWSPDINFO,	NETLINK_XFRM_SOCKET__NLMSG_WRITE },
 	{ XFRM_MSG_GETSPDINFO,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{ XFRM_MSG_MAPPING,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
 =======
 	{ XFRM_MSG_NEWSPDINFO,	NETLINK_XFRM_SOCKET__NLMSG_WRITE },
 >>>>>>> c9245d9... selinux/nlmsg: add XFRM_MSG_NEWSPDINFO
 =======
 >>>>>>> 8850438... selinux/nlmsg: add XFRM_MSG_GETSPDINFO
+=======
+	{ XFRM_MSG_MAPPING,	NETLINK_XFRM_SOCKET__NLMSG_READ  },
+>>>>>>> 44da092... selinux/nlmsg: add XFRM_MSG_MAPPING
 };
 
 static struct nlmsg_perm nlmsg_audit_perms[] =
