@@ -701,9 +701,13 @@ static int selinux_set_mnt_opts(struct super_block *sb,
 	if (strcmp(sb->s_type->name, "proc") == 0)
 		sbsec->flags |= SE_SBPROC | SE_SBGENFS;
 
+<<<<<<< HEAD
 	if (!strcmp(sb->s_type->name, "debugfs") ||
 	    !strcmp(sb->s_type->name, "sysfs") ||
 	    !strcmp(sb->s_type->name, "pstore"))
+=======
+	if (strcmp(sb->s_type->name, "debugfs") == 0)
+>>>>>>> e014558... selinux: enable per-file labeling for debugfs files.
 		sbsec->flags |= SE_SBGENFS;
 
 	/* Determine the labeling behavior to use for this filesystem type. */
@@ -1190,9 +1194,15 @@ static inline u16 socket_type_to_security_class(int family, int type, int protoc
 }
 
 static int selinux_genfs_get_sid(struct dentry *dentry,
+<<<<<<< HEAD
 				u16 tclass,
 				 u16 flags,
 				u32 *sid)
+=======
+				 u16 tclass,
+				 u16 flags,
+				 u32 *sid)
+>>>>>>> e014558... selinux: enable per-file labeling for debugfs files.
 {
 	int rc;
 	struct super_block *sb = dentry->d_inode->i_sb;
@@ -1207,6 +1217,7 @@ static int selinux_genfs_get_sid(struct dentry *dentry,
 		rc = PTR_ERR(path);
 	else {
 		if (flags & SE_SBPROC) {
+<<<<<<< HEAD
 		/* each process gets a /proc/PID/ entry. Strip off the
 		 * PID part to get a valid selinux labeling.
 		 * e.g. /proc/1/net/rpc/nfs -> /net/rpc/nfs */
@@ -1215,6 +1226,16 @@ static int selinux_genfs_get_sid(struct dentry *dentry,
 			path++;
 		}
 		}
+=======
+			/* each process gets a /proc/PID/ entry. Strip off the
+			 * PID part to get a valid selinux labeling.
+			 * e.g. /proc/1/net/rpc/nfs -> /net/rpc/nfs */
+			while (path[1] >= '0' && path[1] <= '9') {
+				path[1] = '/';
+				path++;
+			}
+		}
+>>>>>>> e014558... selinux: enable per-file labeling for debugfs files.
 		rc = security_genfs_sid(sb->s_type->name, path, tclass, sid);
 	}
 	free_page((unsigned long)buffer);
