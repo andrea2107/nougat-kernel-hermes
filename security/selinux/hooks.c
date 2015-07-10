@@ -3125,6 +3125,11 @@ int ioctl_has_perm(const struct cred *cred, struct file *file,
 	struct lsm_ioctlop_audit ioctl;
 	u32 ssid = cred_sid(cred);
 	int rc;
+<<<<<<< HEAD
+=======
+	u8 driver = cmd >> 8;
+	u8 xperm = cmd & 0xff;
+>>>>>>> a5aca4d... selinux: extended permissions for ioctls
 
 	ad.type = LSM_AUDIT_DATA_IOCTL_OP;
 	ad.u.op = &ioctl;
@@ -3143,8 +3148,13 @@ int ioctl_has_perm(const struct cred *cred, struct file *file,
 	if (unlikely(IS_PRIVATE(inode)))
 		return 0;
 
+<<<<<<< HEAD
 	rc = avc_has_operation(ssid, isec->sid, isec->sclass,
 			requested, cmd, &ad);
+=======
+	rc = avc_has_extended_perms(ssid, isec->sid, isec->sclass,
+			requested, driver, xperm, &ad);
+>>>>>>> a5aca4d... selinux: extended permissions for ioctls
 out:
 	return rc;
 }
