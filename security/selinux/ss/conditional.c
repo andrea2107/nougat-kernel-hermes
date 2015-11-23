@@ -663,8 +663,12 @@ void cond_compute_av(struct avtab *ctab, struct avtab_key *key,
 {
 	struct avtab_node *node;
 
+<<<<<<< HEAD
 	if (!ctab || !key || !avd || !xperms)
 >>>>>>> a5aca4d... selinux: extended permissions for ioctls
+=======
+	if (!ctab || !key || !avd)
+>>>>>>> b21cc87... UPSTREAM: selinux: fix bug in conditional rules handling
 		return;
 
 	for (node = avtab_search_node(ctab, key); node;
@@ -683,11 +687,15 @@ void cond_compute_av(struct avtab *ctab, struct avtab_key *key,
 		if ((u16)(AVTAB_AUDITALLOW|AVTAB_ENABLED) ==
 		    (node->key.specified & (AVTAB_AUDITALLOW|AVTAB_ENABLED)))
 			avd->auditallow |= node->datum.u.data;
+<<<<<<< HEAD
 		if ((node->key.specified & AVTAB_ENABLED) &&
 <<<<<<< HEAD
 				(node->key.specified & AVTAB_OP))
 			services_compute_operation_type(ops, node);
 =======
+=======
+		if (xperms && (node->key.specified & AVTAB_ENABLED) &&
+>>>>>>> b21cc87... UPSTREAM: selinux: fix bug in conditional rules handling
 				(node->key.specified & AVTAB_XPERMS))
 			services_compute_xperms_drivers(xperms, node);
 >>>>>>> a5aca4d... selinux: extended permissions for ioctls
