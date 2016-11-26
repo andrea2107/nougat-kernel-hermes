@@ -205,11 +205,9 @@ create_elf_tables(struct linux_binprm *bprm, struct elfhdr *exec,
 	/*
 	 * Generate 16 random bytes for userspace PRNG seeding.
 	 */
-<<<<<<< HEAD
+
 	get_random_bytes(k_rand_bytes, sizeof(k_rand_bytes));
-=======
 	prandom_bytes(k_rand_bytes, sizeof(k_rand_bytes));
->>>>>>> f472bbf... binfmt_elf: use prandom - do not deplete entropy
 	u_rand_bytes = (elf_addr_t __user *)
 		       STACK_ALLOC(p, sizeof(k_rand_bytes));
 	if (__copy_to_user(u_rand_bytes, k_rand_bytes, sizeof(k_rand_bytes)))
