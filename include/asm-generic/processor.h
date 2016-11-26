@@ -15,10 +15,9 @@
 #ifndef _ASM_GENERIC_PROCESSOR_H_
 #define _ASM_GENERIC_PROCESSOR_H_
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 #include <asm-generic/relaxed.h>
-=======
+
 #ifndef cpu_relaxed_read
 #define cpu_relaxed_read(p) (*(p))
 #endif
@@ -26,10 +25,9 @@
 #ifndef cpu_relaxed_read_long
 #define cpu_relaxed_read_long(p) (*(p))
 #endif
->>>>>>> b4ac044... asm-generic: processor.h: adding new header file
-=======
+
 #include <asm-generic/relaxed.h>
->>>>>>> 31be1c0... asm-generic: processor.h: remove redundant macros
+
 
 #ifndef cpu_read_relax
 #define cpu_read_relax() cpu_relax()
